@@ -1,9 +1,10 @@
 const gameBoard = (() => {
-    let array = ["X", "O", "X", "X", "X", "O", " ", " ", "X"];
+    let array = [" ", " ", " ", " ", " ", " ", " ", " ", " "];
     let mark = " ";
-    const mainBoard = document.querySelector('.gameBoard');
 
-    
+    const mainBoard = document.querySelector('.gameBoard');
+    const turnInfo = document.querySelector('.turnInfo');
+
     const populate = () => {
         for(i=0; i<9; i++) {
             document.querySelector(`div[data-index="${i}"]`).textContent = array[i];
@@ -17,16 +18,29 @@ const gameBoard = (() => {
     mainBoard.childNodes.forEach((div) => {
         div.addEventListener(('click'), () => {
             addMark(div.getAttribute('data-index'));
+            populate()
         });
     });
 
+    const setTurnInfo = player => {
+        turnInfo.textContent = `It's ${player}'s turn`;
+    }
+    
+    const reset = () => {
+        array = [" ", " ", " ", " ", " ", " ", " ", " ", " "];
+    }
+
     return {
         populate,
+        setTurnInfo,
+        reset,
         mark
     };
 })();
 
 const game = (() => {
+
+
 
     return {
 
