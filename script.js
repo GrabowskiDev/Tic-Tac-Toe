@@ -1,5 +1,8 @@
 const gameBoard = (() => {
-    let array = [" ", " ", " ", " ", " ", " ", " ", " ", " "];
+    let array = ["X", "O", "X", "X", "X", "O", " ", " ", "X"];
+    let mark = " ";
+    const mainBoard = document.querySelector('.gameBoard');
+
     
     const populate = () => {
         for(i=0; i<9; i++) {
@@ -7,28 +10,26 @@ const gameBoard = (() => {
         }
     };
 
-    const addMark = (index, mark) => {
+    const addMark = index => {
         array[index] = mark;
     }
 
-    return {
-        populate,
-        addMark,
-        array
-    };
-})();
-
-const displayController = (() => {
-    const mainBoard = document.querySelector('.gameBoard');
-
     mainBoard.childNodes.forEach((div) => {
         div.addEventListener(('click'), () => {
-            gameBoard.addMark(div.getAttribute('data-index'), "X");
+            addMark(div.getAttribute('data-index'));
         });
     });
 
     return {
-        
+        populate,
+        mark
+    };
+})();
+
+const game = (() => {
+
+    return {
+
     }
 })();
 
