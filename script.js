@@ -12,13 +12,6 @@ const gameBoard = (() => {
     };
 })();
 
-const displayController = (() => {
-
-    return {
-        
-    }
-})();
-
 const game = (() => {
 
     return {
