@@ -2,30 +2,37 @@ const gameBoard = (() => {
     let array = [" ", " ", " ", " ", " ", " ", " ", " ", " "];
     let mark = " ";
 
+    //Query Selectors
     const mainBoard = document.querySelector('.gameBoard');
     const turnInfo = document.querySelector('.turnInfo');
 
+    //Populating display with content of array
     const populate = () => {
         for(i=0; i<9; i++) {
             document.querySelector(`div[data-index="${i}"]`).textContent = array[i];
         }
     };
 
+    //Add mark to selected div
     const addMark = index => {
-        array[index] = mark;
+        if(array[index]==" ") array[index] = mark;
     }
 
+    //Listens to clicks on mainBoard divs
     mainBoard.childNodes.forEach((div) => {
         div.addEventListener(('click'), () => {
+            //Calls addMark func with clicked div index
             addMark(div.getAttribute('data-index'));
-            populate()
+            populate();
         });
     });
 
+    //Set turn info to indicate who's turn it is
     const setTurnInfo = player => {
         turnInfo.textContent = `It's ${player}'s turn`;
     }
     
+    //Clears the array
     const reset = () => {
         array = [" ", " ", " ", " ", " ", " ", " ", " ", " "];
     }
@@ -39,6 +46,7 @@ const gameBoard = (() => {
 
 const game = (() => {
     const startGame = () => {
+        //Player with X starts the game
         playerX.turn();
     };
 
