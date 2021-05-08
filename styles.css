@@ -1,0 +1,30 @@
+* {
+    font-family: 'Lato', sans-serif;
+}
+
+.gameBoard {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 400px;
+    height: 400px;
+
+    background-color: blue;
+    border: 10px solid blue;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    row-gap: 10px;
+    column-gap: 10px;
+}
+
+.gameBoard div {
+    background-color: white;
+    height: 1fr;
+    line-height: 126.667px;
+    text-align: center;
+    font-size: 100px;
+}
