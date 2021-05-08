@@ -31,7 +31,6 @@ const gameBoard = (() => {
     }
 
     return {
-        populate,
         setTurnInfo,
         reset,
         mark
@@ -39,8 +38,9 @@ const gameBoard = (() => {
 })();
 
 const game = (() => {
-
-
+    const startGame = () => {
+        playerX.turn();
+    };
 
     return {
 
@@ -48,7 +48,12 @@ const game = (() => {
 })();
 
 const playerFactory = (name, mark) => {
+    let name = name;
+    let mark = mark;
 
+    const turn = () => {
+        gameBoard.setTurnInfo(name);
+    }
     return {
 
     }
