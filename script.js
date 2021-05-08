@@ -45,6 +45,8 @@ const game = (() => {
     //Clears the array
     const reset = () => {
         array = [" ", " ", " ", " ", " ", " ", " ", " ", " "];
+        rounds = 0;
+        mark = "X";
     }
     
     const nextRound = () => {
@@ -69,10 +71,12 @@ const game = (() => {
 
     return {
         startGame,
+        reset
     }
+
 })();
 
-const playerFactory = (name, mark) => {
+const playerFactory = (name) => {
     const turn = () => {
         gameBoard.setTurnInfo(name);
     }
@@ -82,7 +86,7 @@ const playerFactory = (name, mark) => {
     }
 };
 
-const playerX = playerFactory("Jakub", "X");
-const playerO = playerFactory("Bartek", "O");
+const playerX = playerFactory("Jakub");
+const playerO = playerFactory("Bartek");
 
 game.startGame();
