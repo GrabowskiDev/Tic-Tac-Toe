@@ -84,6 +84,8 @@ const game = (() => {
                 else if(array[st]==="O") playerOWinner();
             }
         });
+
+        if(!array.includes(" ")) tie();
     };
 
     const playerXWinner = () => {
@@ -95,6 +97,11 @@ const game = (() => {
         alert("Player O won")
         reset();
     };
+    
+    const tie = () => {
+        alert("It's a Tie");
+        reset();
+    }
 
     //Listens to clicks on mainBoard divs
     mainBoard.childNodes.forEach((div) => {
