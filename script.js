@@ -22,7 +22,7 @@ const gameBoard = (() => {
 
 const game = (() => {
     let array = [" ", " ", " ", " ", " ", " ", " ", " ", " "];
-    let rounds = 0;
+    let turns = 0;
     let mark = "X";
 
     const winConditions = [
@@ -51,21 +51,21 @@ const game = (() => {
             array[index] = mark;
             gameBoard.populate(array);
             checkForWinner();
-            nextRound();
+            nextTurn();
         }
     }
     
     //Reset the game
     const reset = () => {
         array = [" ", " ", " ", " ", " ", " ", " ", " ", " "];
-        rounds = -1;
+        turns = -1;
         gameBoard.populate(array);
         startGame();
     }
     
-    const nextRound = () => {
-        ++rounds;
-        if(rounds%2===1) {
+    const nextTurn = () => {
+        ++turns;
+        if(turns%2===1) {
             playerO.turn();
             mark = "O";
         } else {
