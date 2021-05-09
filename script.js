@@ -42,6 +42,7 @@ const game = (() => {
     const startGame = () => {
         //Player with X starts the game
         playerX.turn();
+        mark = "X"
     };
     
     //Add mark to selected div
@@ -57,9 +58,9 @@ const game = (() => {
     //Reset the game
     const reset = () => {
         array = [" ", " ", " ", " ", " ", " ", " ", " ", " "];
-        rounds = 0;
-        mark = "X";
+        rounds = -1;
         gameBoard.populate(array);
+        startGame();
     }
     
     const nextRound = () => {
@@ -87,10 +88,12 @@ const game = (() => {
 
     const playerXWinner = () => {
         alert("Player X won")
+        reset();
     };
 
     const playerOWinner = () => {
         alert("Player O won")
+        reset();
     };
 
     //Listens to clicks on mainBoard divs
@@ -122,7 +125,7 @@ const playerFactory = (name) => {
     }
 };
 
-const playerX = playerFactory("Jakub");
-const playerO = playerFactory("Bartek");
+const playerX = playerFactory("Jakub X");
+const playerO = playerFactory("Bartek O");
 
 game.startGame();
