@@ -24,6 +24,7 @@ const game = (() => {
     let array = [" ", " ", " ", " ", " ", " ", " ", " ", " "];
     let turns = 0;
     let mark = "X";
+    let alreadyWon = false;
 
     const winConditions = [
         [0,1,2],
@@ -47,11 +48,12 @@ const game = (() => {
     
     //Add mark to selected div
     const addMark = index => {
+        if(alreadyWon) return;
         if(array[index]==" ") { 
             array[index] = mark;
             gameBoard.populate(array);
-            checkForWinner();
-            nextTurn();
+            checkForWinner()
+            if(!alreadyWon) nextTurn();
         }
     }
     
@@ -89,13 +91,13 @@ const game = (() => {
     };
 
     const playerXWinner = () => {
-        alert("Player X won")
-        reset();
+        alert("Player X won");
+        alreadyWon = true;
     };
 
     const playerOWinner = () => {
-        alert("Player O won")
-        reset();
+        alert("Player O won");
+        alreadyWon = true;
     };
     
     const tie = () => {
