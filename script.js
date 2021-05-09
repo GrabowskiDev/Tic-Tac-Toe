@@ -25,6 +25,17 @@ const game = (() => {
     let rounds = 0;
     let mark = "X";
 
+    const winConditions = [
+        [0,1,2],
+        [3,4,5],
+        [6,7,8],
+        [0,3,6],
+        [1,4,7],
+        [2,5,8],
+        [0,4,8],
+        [2,4,6]
+    ]
+
     //Query Selectors
     const mainBoard = document.querySelector('.gameBoard');
     
@@ -38,15 +49,17 @@ const game = (() => {
         if(array[index]==" ") { 
             array[index] = mark;
             gameBoard.populate(array);
+            checkForWinner();
             nextRound();
         }
     }
     
-    //Clears the array
+    //Reset the game
     const reset = () => {
         array = [" ", " ", " ", " ", " ", " ", " ", " ", " "];
         rounds = 0;
         mark = "X";
+        gameBoard.populate(array);
     }
     
     const nextRound = () => {
@@ -60,6 +73,26 @@ const game = (() => {
         }
     };
 
+    const checkForWinner = () => {
+        winConditions.forEach(condition => {
+            const st = condition[0];
+            const nd = condition[1];
+            const rd = condition[2];
+            if(array[st]===array[nd]&&array[st]===array[rd]) {
+                if(array[st]==="X") playerXWinner();
+                else if(array[st]==="O") playerOWinner();
+            }
+        });
+    };
+
+    const playerXWinner = () => {
+        alert("Player X won")
+    };
+
+    const playerOWinner = () => {
+        alert("Player O won")
+    };
+
     //Listens to clicks on mainBoard divs
     mainBoard.childNodes.forEach((div) => {
         div.addEventListener(('click'), () => {
@@ -71,7 +104,10 @@ const game = (() => {
 
     return {
         startGame,
-        reset
+        reset,
+
+        array,
+        winConditions
     }
 
 })();
