@@ -1,6 +1,8 @@
 const gameBoard = (() => {
     //Query Selectors
     const turnInfo = document.querySelector('.turnInfo');
+    const winnerPrompt = document.querySelector('.roundEnd');
+    const winnerText = document.querySelector('#winnerText');
 
     //Populating display with content of array
     const populate = (array) => {
@@ -13,10 +15,21 @@ const gameBoard = (() => {
     const setTurnInfo = player => {
         turnInfo.textContent = `It's ${player}'s turn`;
     }
+
+    const toggleWinnerPrompt = () => {
+        winnerPrompt.classList.toggle('hidden')
+    }
+
+    const announceWinner = name => {
+        winnerText.textContent = `The winner is ${name}!`;
+        toggleWinnerPrompt();
+    }
     
     return {
         populate,
         setTurnInfo,
+        announceWinner,
+        toggleWinnerPrompt
     };
 })();
 
@@ -62,6 +75,7 @@ const game = (() => {
         array = [" ", " ", " ", " ", " ", " ", " ", " ", " "];
         turns = 0;
         alreadyWon = false;
+        gameBoard.toggleWinnerPrompt();
         gameBoard.populate(array);
         startGame();
     }
@@ -92,12 +106,12 @@ const game = (() => {
     };
 
     const playerXWinner = () => {
-        alert("Player X won");
+        gameBoard.announceWinner(playerX.getName());
         alreadyWon = true;
     };
 
     const playerOWinner = () => {
-        alert("Player O won");
+        gameBoard.announceWinner(playerO.getName());
         alreadyWon = true;
     };
     
@@ -127,12 +141,17 @@ const playerFactory = (name) => {
         gameBoard.setTurnInfo(name);
     }
 
+    const getName = () => {
+        return name;
+    }
+
     return {
         turn,
+        getName
     }
 };
 
-const playerX = playerFactory("Jakub X");
-const playerO = playerFactory("Bartek O");
+const playerX = playerFactory("Jakub");
+const playerO = playerFactory("Bartek");
 
 game.startGame();
