@@ -87,7 +87,7 @@ const game = (() => {
             }
         });
 
-        if(!array.includes(" ")) tie();
+        if(!array.includes(" ")&&!alreadyWon) tie();
     };
 
     const playerXWinner = () => {
@@ -117,9 +117,6 @@ const game = (() => {
     return {
         startGame,
         reset,
-
-        array,
-        winConditions
     }
 
 })();
