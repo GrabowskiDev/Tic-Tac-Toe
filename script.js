@@ -24,11 +24,17 @@ const gameBoard = (() => {
         winnerText.textContent = `The winner is ${name}!`;
         toggleWinnerPrompt();
     }
-    
+
+    const announceTie = () => {
+        winnerText.textContent = "It's a Tie";
+        toggleWinnerPrompt();
+    }
+
     return {
         populate,
         setTurnInfo,
         announceWinner,
+        announceTie,
         toggleWinnerPrompt
     };
 })();
