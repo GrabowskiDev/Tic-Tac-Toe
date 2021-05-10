@@ -23,8 +23,19 @@
             <div data-index="7"></div>
             <div data-index="8"></div>
         </div>
+        <!-- Input for player names -->
+        <div class="playerNames">
+            <h3>First player name (X):</h3>
+            <input type="text" placeholder="Name" id="playerX">
+
+            <h3>Second player name (O):</h3>
+            <input type="text" placeholder="Name" id="playerO">
+            <button onclick="start()">Start!</button>
+        </div>
+
+        <!-- Winner prompt -->
         <div class="roundEnd hidden">
-            <h2 id="winnerText">Winner is Jakub</h2>
+            <h2 id="winnerText"></h2>
             <button onclick="game.reset()">Restart</button>
         </div>
     </div>

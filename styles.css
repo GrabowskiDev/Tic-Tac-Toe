@@ -2,7 +2,6 @@
     --box-size:  400px;
 }
 
-
 * {
     font-family: 'Lato', sans-serif;
 }
@@ -40,6 +39,7 @@
     font-size: 100px;
 }
 
+/* Winner prompt */
 .roundEnd {
     position: absolute;
     left: 50%;
@@ -60,6 +60,27 @@
 .roundEnd button {
     height: 30px;
     width: 80px;
+}
+
+.playerNames {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 300px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ 
+    background-color: cadetblue;
+    padding-bottom: 10px;
+}
+
+.playerNames button {
+    margin: 10px;
 }
 
 .hidden {

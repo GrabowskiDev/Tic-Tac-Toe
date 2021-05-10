@@ -11,7 +11,7 @@ const gameBoard = (() => {
         }
     };
 
-        //Set turn info to indicate who's turn it is
+    //Set turn info to indicate who's turn it is
     const setTurnInfo = player => {
         turnInfo.textContent = `It's ${player}'s turn`;
     }
@@ -157,7 +157,17 @@ const playerFactory = (name) => {
     }
 };
 
-const playerX = playerFactory("Jakub");
-const playerO = playerFactory("Bartek");
+let playerX;
+let playerO;
 
-game.startGame();
+function start() {
+    let playerXName = document.querySelector('#playerX').value;
+    let playerOName = document.querySelector('#playerO').value;
+    let playerNames = document.querySelector('.playerNames');
+
+    playerX = playerFactory(playerXName);
+    playerO = playerFactory(playerOName);
+
+    playerNames.classList.add('hidden');
+    game.startGame();
+}
