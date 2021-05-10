@@ -60,7 +60,8 @@ const game = (() => {
     //Reset the game
     const reset = () => {
         array = [" ", " ", " ", " ", " ", " ", " ", " ", " "];
-        turns = -1;
+        turns = 0;
+        alreadyWon = false;
         gameBoard.populate(array);
         startGame();
     }
