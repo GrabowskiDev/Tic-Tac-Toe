@@ -1,3 +1,8 @@
+:root {
+    --box-size:  400px;
+}
+
+
 * {
     font-family: 'Lato', sans-serif;
 }
@@ -14,8 +19,8 @@
 }
 
 .gameBoard {
-    width: 400px;
-    height: 400px;
+    width: var(--box-size);
+    height: var(--box-size);
 
     background-color: blue;
     border: 10px solid blue;
@@ -33,4 +38,41 @@
     line-height: 126.667px;
     text-align: center;
     font-size: 100px;
+}
+
+.roundEnd {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 300px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+
+    background-color: cadetblue;
+}
+
+.roundEnd button {
+    height: 30px;
+    width: 80px;
+}
+
+.hidden {
+    display: none;
+}
+
+@media screen and (max-width: 421px) {
+    :root {
+        --box-size: 300px;
+    }
+
+    .gameBoard div {
+        line-height: 93px;
+        font-size: 80px;
+    }
 }
