@@ -122,8 +122,7 @@ const game = (() => {
     };
     
     const tie = () => {
-        alert("It's a Tie");
-        reset();
+        gameBoard.announceTie();
     }
 
     //Listens to clicks on mainBoard divs
