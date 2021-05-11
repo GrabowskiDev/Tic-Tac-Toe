@@ -10,6 +10,15 @@
     text-align: center;
 }
 
+.prompt {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: cadetblue;
+    padding: 10px;
+}
+
 .game {
     position: absolute;
     left: 50%;
@@ -41,20 +50,13 @@
 
 /* Winner prompt */
 .roundEnd {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-
     width: 300px;
     height: 150px;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
-
-    background-color: cadetblue;
 }
 
 .roundEnd button {
@@ -63,20 +65,12 @@
 }
 
 .playerNames {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-
     width: 300px;
     height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
- 
-    background-color: cadetblue;
-    padding-bottom: 10px;
 }
 
 .playerNames button {
