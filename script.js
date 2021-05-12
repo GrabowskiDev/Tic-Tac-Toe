@@ -3,13 +3,31 @@ const gameBoard = (() => {
     const turnInfo = document.querySelector('.turnInfo');
     const winnerPrompt = document.querySelector('.roundEnd');
     const winnerText = document.querySelector('#winnerText');
+    const mainBoardDivs = document.querySelectorAll('div[data-index]');
+
+    let colorX = '#F00';
+    let colorO = '#00F';
 
     //Populating display with content of array
     const populate = (array) => {
         for(i=0; i<9; i++) {
             document.querySelector(`div[data-index="${i}"]`).textContent = array[i];
         }
+
+        populateColors();
     };
+
+    const populateColors = () => {
+        mainBoardDivs.forEach(div => {
+            console.log(div);
+            if(div.textContent==="X") div.classList.add('markX');
+            else if(div.textContent==="O") div.classList.add('markO');
+            else {
+                div.classList.remove('markX');
+                div.classList.remove('markO');
+            }
+        })
+    }
 
     //Set turn info to indicate who's turn it is
     const setTurnInfo = player => {

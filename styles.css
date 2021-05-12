@@ -19,6 +19,14 @@
     padding: 10px;
 }
 
+.markX {
+    color: red;
+} 
+
+.markO {
+    color: blue;
+}
+
 .game {
     position: absolute;
     left: 50%;
