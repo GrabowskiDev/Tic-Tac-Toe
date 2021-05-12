@@ -14,7 +14,7 @@
 
 h1 {
     font-size: 40px;
-    width: 5em;
+    width: 6em;
     margin: auto;
 
     background: linear-gradient(to right, var(--acc1-color), var(--acc2-color));
