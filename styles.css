@@ -1,12 +1,41 @@
 :root {
     --box-size:  400px;
+     
+    --main-color: #fcecdd;
+    --comp-color: #ffc288;
+    --acc1-color: #fea82f;
+    --acc2-color: #ff6701;
 }
 
 * {
     font-family: 'Lato', sans-serif;
 }
 
-.title {
+h1 {
+    font-size: 40px;
+    width: 5em;
+    margin: auto;
+
+    background: linear-gradient(to right, var(--acc1-color), var(--acc2-color));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+button {
+    background-color: var(--comp-color);
+    border: 3px solid var(--acc1-color);
+    border-radius: 8px;
+    scale: 150%;
+}
+
+.shadow {
+    box-shadow: 5px 5px 6px grey, -5px -5px 6px grey, -5px 5px 6px grey, 5px -5px 6px grey;
+}
+
+.center {
     text-align: center;
 }
 
@@ -15,16 +44,20 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    background-color: cadetblue;
+    width: 300px;
+
     padding: 10px;
+    background-color: var(--main-color);
+    border: 8px solid var(--comp-color);
+    border-radius: 20px;
 }
 
 .markX {
-    color: red;
+    color: var(--acc1-color);
 } 
 
 .markO {
-    color: blue;
+    color: var(--acc2-color);
 }
 
 .game {
@@ -34,12 +67,18 @@
     transform: translate(-50%, -50%);
 }
 
+.game h2 {
+    margin-bottom: 21px;
+    color: var(--acc1-color);
+}
+
 .gameBoard {
     width: var(--box-size);
     height: var(--box-size);
 
-    background-color: blue;
-    border: 10px solid blue;
+    background-color: var(--comp-color);
+    border: 10px solid var(--comp-color);
+    border-radius: 6px;
 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -49,7 +88,7 @@
 }
 
 .gameBoard div {
-    background-color: white;
+    background-color: var(--main-color);
     height: 1fr;
     line-height: 126.667px;
     text-align: center;
@@ -58,7 +97,6 @@
 
 /* Winner prompt */
 .roundEnd {
-    width: 300px;
     height: 150px;
 
     display: flex;
@@ -73,7 +111,6 @@
 }
 
 .playerNames {
-    width: 300px;
     height: 200px;
     display: flex;
     flex-direction: column;
@@ -81,8 +118,13 @@
     align-items: center;
 }
 
-.playerNames button {
+.playerNames h3 {
+    color: var(--acc1-color);
     margin: 10px;
+}
+
+.playerNames button {
+    margin: 20px 0px 10px 0px;
 }
 
 .hidden {
@@ -97,5 +139,13 @@
     .gameBoard div {
         line-height: 93px;
         font-size: 80px;
+    }
+
+    .prompt {
+        width: 250px;
+    }
+
+    .roundEnd {
+        font-size: 13px;
     }
 }
