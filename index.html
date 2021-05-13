@@ -25,21 +25,21 @@
             <div data-index="7"></div>
             <div data-index="8"></div>
         </div>
-        <!-- Input for player names -->
-        <div class="playerNames shadow prompt">
-            <h3>First player name (X):</h3>
-            <input type="text" placeholder="Name" id="playerX">
+    </div>
+    <!-- Input for player names -->
+    <div class="playerNames shadow prompt">
+        <h3>First player name (X):</h3>
+        <input type="text" placeholder="Name" id="playerX">
 
-            <h3>Second player name (O):</h3>
-            <input type="text" placeholder="Name" id="playerO">
-            <button onclick="start()">Start!</button>
-        </div>
+        <h3>Second player name (O):</h3>
+        <input type="text" placeholder="Name" id="playerO">
+        <button onclick="start()">Start!</button>
+    </div>
 
-        <!-- Winner prompt -->
-        <div class="roundEnd shadow prompt hidden">
-            <h2 id="winnerText"></h2>
-            <button onclick="game.reset()">Restart</button>
-        </div>
+    <!-- Winner prompt -->
+    <div class="roundEnd shadow prompt hidden">
+        <h2 id="winnerText"></h2>
+        <button onclick="game.reset()">Restart</button>
     </div>
 </body>
 <script src="script.js" defer></script>

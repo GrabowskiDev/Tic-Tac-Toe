@@ -61,11 +61,13 @@ button {
     color: var(--acc2-color);
 }
 
+/* Game styling */
 .game {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(50px);
 }
 
 .game h2 {
@@ -112,6 +114,7 @@ button {
     width: 80px;
 }
 
+/* Player names input prompt */
 .playerNames {
     height: 200px;
     background: inherit;
@@ -141,6 +144,7 @@ button {
     display: none;
 }
 
+/* Responsive design */
 @media screen and (max-width: 421px) {
     :root {
         --box-size: 300px;
