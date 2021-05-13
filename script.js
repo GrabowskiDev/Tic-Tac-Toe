@@ -35,7 +35,7 @@ const gameBoard = (() => {
     }
 
     const toggleWinnerPrompt = () => {
-        winnerPrompt.classList.toggle('hidden')
+        winnerPrompt.classList.toggle('hidden');
     }
 
     const announceWinner = name => {
@@ -48,12 +48,18 @@ const gameBoard = (() => {
         toggleWinnerPrompt();
     }
 
+    const popupClose = (div) => {
+        div.classList.remove('popup-open');
+        setTimeout(function(){div.classList.add('popup-close')}, 20);
+    }
+
     return {
         populate,
         setTurnInfo,
         announceWinner,
         announceTie,
-        toggleWinnerPrompt
+        toggleWinnerPrompt,
+        popupClose
     };
 })();
 
@@ -181,10 +187,11 @@ function start() {
     let playerXName = document.querySelector('#playerX').value;
     let playerOName = document.querySelector('#playerO').value;
     let playerNames = document.querySelector('.playerNames');
+    gameBoard.popupClose(playerNames);
 
     playerX = playerFactory(playerXName);
     playerO = playerFactory(playerOName);
 
-    playerNames.classList.add('hidden');
+    setTimeout(function(){playerNames.classList.add('hidden');}, 1020);
     game.startGame();
 }

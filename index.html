@@ -27,17 +27,17 @@
         </div>
     </div>
     <!-- Input for player names -->
-    <div class="playerNames shadow prompt">
+    <div class="playerNames shadow prompt popup-open">
         <h3>First player name (X):</h3>
         <input type="text" placeholder="Name" id="playerX">
 
         <h3>Second player name (O):</h3>
         <input type="text" placeholder="Name" id="playerO">
-        <button onclick="start()">Start!</button>
+        <button onclick="start()" id="startButton">Start!</button>
     </div>
 
     <!-- Winner prompt -->
-    <div class="roundEnd shadow prompt hidden">
+    <div class="roundEnd shadow prompt hidden popup-open">
         <h2 id="winnerText"></h2>
         <button onclick="game.reset()">Restart</button>
     </div>
