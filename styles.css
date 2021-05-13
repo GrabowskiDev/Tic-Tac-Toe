@@ -9,6 +9,9 @@
 
 * {
     font-family: 'Lato', sans-serif;
+}
+
+body {
     background: #FFDDC2;
 }
 
@@ -30,6 +33,7 @@ button {
     border: 3px solid var(--acc1-color);
     border-radius: 8px;
     scale: 150%;
+    color: var(--acc2-color);
 }
 
 .shadow {
@@ -100,8 +104,8 @@ button {
 
 /* Winner prompt */
 .roundEnd {
+    color: var(--acc2-color);
     height: 150px;
-    background: inherit;
 
     display: flex;
     flex-direction: column;
@@ -117,7 +121,6 @@ button {
 /* Player names input prompt */
 .playerNames {
     height: 200px;
-    background: inherit;
 
     display: flex;
     flex-direction: column;
