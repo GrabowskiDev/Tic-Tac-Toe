@@ -17,11 +17,17 @@ const gameBoard = (() => {
     const populateColors = () => {
         mainBoardDivs.forEach(div => {
             console.log(div);
-            if(div.textContent==="X") div.classList.add('markX');
-            else if(div.textContent==="O") div.classList.add('markO');
-            else {
+            if(div.textContent==="X") {
+                div.classList.add('markX');
+                div.classList.add('markXAnimation');
+            } else if(div.textContent==="O") {
+                div.classList.add('markO');
+                div.classList.add('markOAnimation');
+            } else {
                 div.classList.remove('markX');
                 div.classList.remove('markO');
+                div.classList.remove('markXAnimation');
+                div.classList.remove('markOAnimation');
             }
         })
     }

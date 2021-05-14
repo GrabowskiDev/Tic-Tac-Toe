@@ -152,7 +152,15 @@ button {
     animation: popup 1s ease-out;
 }
 .popup-close {
-    animation: popup 1s ease-out reverse;
+    animation: popup 0.7s ease-out reverse;
+}
+
+.markXAnimation {
+    animation: markXAnimation 0.3s linear;
+}
+
+.markOAnimation {
+    animation: markOAnimation 0.3s linear;
 }
 
 @keyframes popup {
@@ -161,6 +169,24 @@ button {
     }
     100% {
         opacity: 1;
+    }
+}
+
+@keyframes markXAnimation {
+    0% {
+        color: var(--main-color);
+    }
+    100% {
+        color: var(--acc1-color);
+    }
+}
+
+@keyframes markOAnimation {
+    0% {
+        color: var(--main-color);
+    }
+    100% {
+        color: var(--acc2-color);
     }
 }
 
