@@ -5,9 +5,6 @@ const gameBoard = (() => {
     const winnerText = document.querySelector('#winnerText');
     const mainBoardDivs = document.querySelectorAll('div[data-index]');
 
-    let colorX = '#F00';
-    let colorO = '#00F';
-
     //Populating display with content of array
     const populate = (array) => {
         for(i=0; i<9; i++) {
@@ -35,7 +32,15 @@ const gameBoard = (() => {
     }
 
     const toggleWinnerPrompt = () => {
+        if(winnerPrompt.classList.contains('hidden')) {
+            winnerPrompt.classList.add('popup-open');
+            setTimeout(()=>winnerPrompt.classList.remove('popup-open'),1000);
+        } else {
+            winnerPrompt.classList.add('popup-close');
+            setTimeout(()=>winnerPrompt.classList.remove('popup-close'),1000);
+        }
         winnerPrompt.classList.toggle('hidden');
+        //setTimeout(function(){winnerPrompt.classList.remove('popup-open')}, 1000);
     }
 
     const announceWinner = name => {
@@ -49,7 +54,6 @@ const gameBoard = (() => {
     }
 
     const popupClose = (div) => {
-        div.classList.remove('popup-open');
         setTimeout(function(){div.classList.add('popup-close')}, 20);
     }
 
@@ -105,7 +109,8 @@ const game = (() => {
         array = [" ", " ", " ", " ", " ", " ", " ", " ", " "];
         turns = 0;
         alreadyWon = false;
-        gameBoard.toggleWinnerPrompt();
+        gameBoard.popupClose(document.querySelector('.roundEnd'));
+        setTimeout(()=>gameBoard.toggleWinnerPrompt(), 1000);
         gameBoard.populate(array);
         startGame();
     }
@@ -182,16 +187,18 @@ const playerFactory = (name) => {
 
 let playerX;
 let playerO;
+let playerNames = document.querySelector('.playerNames');
 
 function start() {
     let playerXName = document.querySelector('#playerX').value;
     let playerOName = document.querySelector('#playerO').value;
-    let playerNames = document.querySelector('.playerNames');
     gameBoard.popupClose(playerNames);
 
     playerX = playerFactory(playerXName);
     playerO = playerFactory(playerOName);
 
-    setTimeout(function(){playerNames.classList.add('hidden');}, 1020);
+    setTimeout(function(){playerNames.classList.add('hidden');}, 1000);
     game.startGame();
 }
+
+setTimeout(function(){playerNames.classList.remove('popup-open')}, 1000);
