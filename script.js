@@ -60,7 +60,7 @@ const gameBoard = (() => {
     }
 
     const popupClose = (div) => {
-        setTimeout(function(){div.classList.add('popup-close')}, 20);
+        div.classList.add('popup-close');
     }
 
     return {
@@ -116,7 +116,7 @@ const game = (() => {
         turns = 0;
         alreadyWon = false;
         gameBoard.popupClose(document.querySelector('.roundEnd'));
-        setTimeout(()=>gameBoard.toggleWinnerPrompt(), 1000);
+        setTimeout(()=>gameBoard.toggleWinnerPrompt(), 700);
         gameBoard.populate(array);
         startGame();
     }
@@ -203,8 +203,8 @@ function start() {
     playerX = playerFactory(playerXName);
     playerO = playerFactory(playerOName);
 
-    setTimeout(function(){playerNames.classList.add('hidden');}, 1000);
+    setTimeout(function(){playerNames.classList.add('hidden');}, 700);
     game.startGame();
 }
 
-setTimeout(function(){playerNames.classList.remove('popup-open')}, 1000);
+setTimeout(function(){playerNames.classList.remove('popup-open')}, 700);
